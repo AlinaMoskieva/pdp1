@@ -74,7 +74,7 @@ Rails.application.configure do
       authentication:       :plain,
       enable_starttls_auto: true,
       openssl_verify_mode:  ENV.fetch("SMTP_OPENSSL_VERIFY_MODE", nil),
-      address:              ENV.fetch("SMTP_ADDRESS", "smtp.sendgrid.net"),
+      address:              ENV.fetch("SMTP_ADDRESS", "smtp.gmail.com"),
       port:                 ENV.fetch("SMTP_PORT", 587),
       domain:               ENV.fetch("SMTP_DOMAIN", "heroku.com"),
       user_name:            ENV.fetch("SMTP_USERNAME") { ENV.fetch("SENDGRID_USERNAME") },
