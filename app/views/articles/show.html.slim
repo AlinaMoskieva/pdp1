@@ -1,0 +1,16 @@
+.row
+  .small-10.large-8.large-offset-2.small-offset-1.columns
+    .article
+      .article__title
+        h2= article.title
+      .article__author
+        span= article.author
+      .article__text
+        p= article.text
+
+    .small-9.large-8.large-offset-2.small-offset-1.columns
+      .form-actions
+        - if policy(article).update?
+          = link_to "Edit", edit_article_path(article), class: 'hollow button'
+          '
+        = link_to 'Back', :back, class: 'hollow button'
