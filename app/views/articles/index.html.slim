@@ -1,30 +1,28 @@
-table.table.table-striped
-  thead
-    tr
-        th Actions
+.row
+  .small-4.large-4.large-offset-4.small-offset-4.columns
+    h2="Articles"
+.row
+  .small-10.large-8.large-offset-2.small-offset-1.columns
+    - articles.each do |article|
+      .article
+        .article__title_shorten-link
+          h4= article.preview_title_link
+        .article__text_shorten
+          p=article.preview_text
+        .article__author-right
+          span=article.author
+        .article__time-since-creation
+          span=article.time_since_creation
+        br
+        hr/
 
-  - articles.each do |article|
-    tr
-      td.actions
-        = link_to(article, class: 'btn') do
-          i.fi-eye
-          |  Show
-        - if policy(article).update?
-          = link_to(edit_article_path(article), class: 'btn') do
-            i.fi-pencil
-            |  Edit
-        - if policy(article).destroy?
-          = link_to(article, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }) do
-            i.fi-trash
-            |  Delete
+    .paginator
+      = paginate(articles)
 
-.paginator
-  = paginate(articles)
-
-br
-- if policy(article).create?
-  = link_to new_article_path, class: 'hollow button' do
-    i.fi-plus
-    |  New Article
+    br
+    - if policy(article).create?
+      = link_to new_article_path, class: 'hollow button' do
+        i.fi-plus
+        |  New Article
 
 

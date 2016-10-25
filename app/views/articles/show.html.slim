@@ -13,4 +13,7 @@
         - if policy(article).update?
           = link_to "Edit", edit_article_path(article), class: 'hollow button'
           '
+        - if policy(article).destroy?
+          = link_to("Delete", article, method: :delete, class: 'alert hollow button', data: { confirm: 'Are you sure?' })
+          '
         = link_to 'Back', :back, class: 'hollow button'
