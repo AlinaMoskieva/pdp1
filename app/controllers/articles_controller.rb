@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   respond_to :html
 
   expose_decorated :article
-  expose :articles, -> { Article.includes(:user).page(params[:page]) }
+  expose :articles, -> { Article.page(params[:page]) }
   before_action :authorize_resource, only: %i(create update destroy)
 
   def create
