@@ -23,6 +23,7 @@ gem "inky-rb", require: "inky"
 gem "metamagic"
 gem "simple_form"
 gem "slim"
+gem "carrierwave", ">= 1.0.0.beta", "< 2.0"
 
 # all other gems
 gem "decent_decoration"

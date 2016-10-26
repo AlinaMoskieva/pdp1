@@ -4,4 +4,8 @@ class UserDecorator < ApplicationDecorator
   def full_name_with_email
     "#{object.full_name} (#{object.email})"
   end
+
+  def avatar
+    image_tag(object.avatar? ? object.avatar : "noavatar.png")
+  end
 end

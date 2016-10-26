@@ -1,6 +1,10 @@
 .row
   .columns
-    h2 = title("Edit #{current_user.full_name}")
+    .small-4.large-1.columns
+      .user-avatar
+        = current_user.avatar
+    .small-8.large-11.columns
+      h2 = title("Edit #{current_user.full_name}")
 
 .row
   .medium-5.columns
@@ -12,6 +16,7 @@
       .form-inputs
         = f.input :full_name, required: true, autofocus: true
         = f.input :email, required: true
+        = f.input :avatar
         = f.input :password,
             autocomplete: "off",
             required: false
