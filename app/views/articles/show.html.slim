@@ -15,5 +15,36 @@
           '
         - if policy(article).destroy?
           = link_to("Delete", article, method: :delete, class: 'alert hollow button', data: { confirm: 'Are you sure?' })
-          '
-        = link_to 'Back', :back, class: 'hollow button'
+.row
+  .small-10.large-8.large-offset-2.small-offset-1.columns
+    h4="Comments ()"
+    hr/
+.row
+  .small-10.large-8.large-offset-2.small-offset-1.columns
+    .paginator.text-center
+      = paginate(comments)
+
+    - comments.each do |comment|
+      .comment
+        .small-10.large-11.columns
+          .comment__author-name
+            span= comment.user_full_name
+          .comment__body
+            p= comment.body
+          .comment__date
+            span= comment.time_since_creation
+        .small-2.large-1.columns
+        - if policy(comment).update?
+          .comment__edit-button
+            = link_to "Edit", edit_comment_path(comment)
+        - if policy(comment).destroy?
+          .comment__destroy-button
+            = link_to "Delete", comment, method: :delete
+        hr/
+.row
+  .small-10.large-8.large-offset-2.small-offset-1.columns
+    h4="Add a comment"
+    - if policy(:comment).create?
+      = render "comments/new"
+    - else
+      p="You should sign in for have ability to add comments"
