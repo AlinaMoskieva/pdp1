@@ -1,10 +1,12 @@
-.row
-  .columns
-    .small-4.large-1.columns
-      .user-avatar
-        = current_user.avatar
-    .small-8.large-11.columns
-      h2 = title("Edit #{current_user.full_name}")
+.user
+  .row
+    .columns
+      .small-4.large-2.columns
+        .user__avatar--large
+          = current_user.avatar
+      .small-8.large-10.columns
+        .user__name--centered
+          h2 = title("#{current_user.full_name}")
 
 .row
   .medium-5.columns
