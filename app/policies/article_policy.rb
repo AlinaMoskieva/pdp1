@@ -1,6 +1,6 @@
 class ArticlePolicy < ApplicationPolicy
   def create?
-    user
+    user.present?
   end
 
   def update?

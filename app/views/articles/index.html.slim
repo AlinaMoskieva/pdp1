@@ -21,8 +21,4 @@
 
     br
     - if policy(article).create?
-      = link_to new_article_path, class: 'hollow button' do
-        i.fi-plus
-        |  New Article
-
-
+      = link_to "New Article", new_article_path, class: 'hollow button'
