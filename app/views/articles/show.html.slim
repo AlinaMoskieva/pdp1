@@ -47,4 +47,5 @@
     - if policy(:comment).create?
       = render "comments/new"
     - else
-      p="You should sign in for have ability to add comments"
+      .callout.primary
+        p="You should sign in for have ability to add comments"
