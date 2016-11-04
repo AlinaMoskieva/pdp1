@@ -20,6 +20,7 @@
         = f.input :email, required: true
         = f.file_field :avatar
         = f.hidden_field :avatar_cache
+        = f.input :remove_avatar, as: :boolean
         = f.input :password,
             autocomplete: "off",
             required: false
