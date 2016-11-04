@@ -12,7 +12,7 @@ class User
     end
 
     def account_update
-      default_params.permit(USER_PARAMS, :avatar)
+      default_params.permit(USER_PARAMS, :avatar, :avatar_cache)
     end
   end
 end
