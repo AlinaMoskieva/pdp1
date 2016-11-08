@@ -2,14 +2,17 @@ class CommentsController < ApplicationController
   respond_to :html
 
   expose :comment
-  expose :article
+  expose_decorated :article
   before_action :authorize_resource, only: %i(create update destroy)
 
   def create
     comment.article = article
     comment.user = current_user
-    comment.save
-    respond_with(comment, location: comment.article)
+    if comment.save
+      respond_with(comment, location: comment.article)
+    else
+      redirect_to article, flash: { notice: "Comment could not be created." }
+    end
   end
 
   def update
