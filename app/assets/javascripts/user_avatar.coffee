@@ -11,19 +11,21 @@ class Avatar
   bindings: (el)->
     @avatar.on "click", @downMenu
     @changeAvatarButton.on "change", @changeAvatarPhoto
-    # @changeAvatarFromCahce()
+    @$el.on "load", @changeAvatarFromCahce()
 
   downMenu: (event)=>
     @changeAvatarButton.click()
 
   changeAvatarPhoto: (event)=>
     @avatar.find("img").attr "src", URL.createObjectURL(event.target.files[0])
-    console.log(URL.createObjectURL(event.target.files[0]))
+    console.log(event.target.files[0])
 
-  # changeAvatarFromCahce: (event)=>
-    # if @avatarCache?
-      # console.log(@avatarCache.val())
-      # console.log(URL.createObjectURL(@avatarCache.val()))
+  changeAvatarFromCahce: (event)=>
+    image = new File(@avatarCache, "image")
+    console.log("changeAvatarFromCahce")
+    console.log(image)
+
+    @avatar.find("img").attr "src", URL.createObjectURL(image)
 
 $ ->
   new Avatar(".edit-user-information")
