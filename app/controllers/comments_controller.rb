@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if comment.save
       respond_with(comment, location: comment.article)
     else
-      redirect_to article, flash: { notice: "Comment could not be created." }
+      redirect_to article, notice: "Comment could not be created."
     end
   end
 
