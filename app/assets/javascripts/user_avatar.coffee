@@ -11,7 +11,7 @@ class Avatar
   bindings: (el)->
     @avatar.on "click", @downMenu
     @changeAvatarButton.on "change", @changeAvatarPhoto
-    @$el.on "load", @changeAvatarFromCahce()
+    # @$el.on "load", @changeAvatarFromCahce()
 
   downMenu: (event)=>
     @changeAvatarButton.click()

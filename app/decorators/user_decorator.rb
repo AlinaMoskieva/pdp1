@@ -6,6 +6,6 @@ class UserDecorator < ApplicationDecorator
   end
 
   def avatar
-    image_tag(object.avatar? ? object.avatar : "noavatar.png")
+    image_tag(object.avatar? ? object.avatar.medium : "noavatar.png")
   end
 end
