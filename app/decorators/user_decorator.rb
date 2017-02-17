@@ -8,4 +8,8 @@ class UserDecorator < ApplicationDecorator
   def avatar
     image_tag(object.avatar? ? object.avatar.medium : "noavatar.png")
   end
+
+  def small_avatar
+    image_tag(object.avatar? ? object.avatar.tiny : "noavatar.png")
+  end
 end
