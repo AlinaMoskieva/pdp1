@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module RailsBase
+module PDP1
   class Application < Rails::Application
     require "carrierwave/orm/activerecord"
 

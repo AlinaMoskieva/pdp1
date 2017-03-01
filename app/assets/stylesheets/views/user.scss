@@ -1,4 +1,4 @@
-.user__avatar--small {
+.user__avatar_small {
   img {
     width: 30px;
     height: 30px;
@@ -7,7 +7,7 @@
   }
 }
 
-.user__avatar--large {
+.user__avatar_large {
   img {
     width: 100px;
     height: 100px;
@@ -21,13 +21,14 @@
   text-align: center;
 }
 
-.user__name--centered {
+.user__name_centered {
   margin-top: 30px;
 }
 
 .user {
   margin-bottom: 20px;
 }
+
 .change-avatar-button {
   display: none;
 }

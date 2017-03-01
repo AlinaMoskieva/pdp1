@@ -7,11 +7,11 @@ class Avatar
     @changeAvatarButton = $(".change-avatar-button", @$el)
 
     @bindings()
+    @changeAvatarFromCache()
 
   bindings: (el)->
     @avatar.on "click", @downMenu
     @changeAvatarButton.on "change", @changeAvatarPhoto
-    @changeAvatarFromCahce()
 
   downMenu: (event)=>
     @changeAvatarButton.click()
@@ -19,7 +19,7 @@ class Avatar
   changeAvatarPhoto: (event)=>
     @avatar.find("img").attr "src", URL.createObjectURL(event.target.files[0])
 
-  changeAvatarFromCahce: (event)=>
+  changeAvatarFromCache: (event)=>
     if @avatarCache.attr("value")
       @avatar.find("img").attr "src", "uploads/tmp/" + @avatarCache.attr("value")
 
