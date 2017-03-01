@@ -18,7 +18,3 @@
 
     .paginator
       = paginate(articles)
-
-    br
-    - if policy(article).create?
-      = link_to "New Article", new_article_path, class: 'hollow button'
