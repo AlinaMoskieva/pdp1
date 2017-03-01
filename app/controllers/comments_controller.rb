@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    comment.update_attributes(comment_params)
+    comment.update(comment_params)
     respond_with(comment, location: comment.article)
   end
 
