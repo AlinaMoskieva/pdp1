@@ -1,33 +1,43 @@
-.row
-  .columns
-    h2 = title("Edit #{current_user.full_name}")
+.edit-user-information
+  .user
+    .row
+      .columns
+        .small-4.large-2.columns
+          .user__avatar--large
+            = current_user.medium_avatar
+        .small-8.large-10.columns
+          .user__name--centered
+            h2 = title("#{current_user.full_name}")
 
-.row
-  .medium-5.columns
-    = simple_form_for resource,
-        as: resource_name,
-        url: registration_path(resource_name),
-        html: { method: :put } do |f|
+  .row
+    .medium-5.columns
+      = simple_form_for resource,
+          as: resource_name,
+          url: registration_path(resource_name),
+          html: { method: :put, multipart: true } do |f|
 
-      .form-inputs
-        = f.input :full_name, required: true, autofocus: true
-        = f.input :email, required: true
-        = f.input :password,
-            autocomplete: "off",
-            required: false
-        = f.input :password_confirmation,
-            required: false
+        .form-inputs
+          = f.file_field :avatar, class: "change-avatar-button"
+          = f.hidden_field :avatar_cache, class: "change-avatar-cache"
+          = f.input :remove_avatar, as: :boolean
+          = f.input :full_name, required: true, autofocus: true
+          = f.input :email, required: true
+          = f.input :password,
+              autocomplete: "off",
+              required: false
+          = f.input :password_confirmation,
+              required: false
 
-      .form-actions
-        = f.button :submit, "Update"
+        .form-actions
+          = f.button :submit, "Update"
 
-  .medium-5.medium-offset-1.columns.end
-    h6
-      b Cancel my account
-    p
-      | Unhappy?
-      '
-      = link_to "Cancel my account.",
-          registration_path(resource_name),
-          data: { confirm: "Are you sure?" },
-          method: :delete
+    .medium-5.medium-offset-1.columns.end
+      h6
+        b Cancel my account
+      p
+        | Unhappy?
+        '
+        = link_to "Cancel my account.",
+            registration_path(resource_name),
+            data: { confirm: "Are you sure?" },
+            method: :delete

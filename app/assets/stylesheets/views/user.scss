@@ -1,0 +1,34 @@
+.user__avatar--small {
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 47%;
+  }
+}
+
+.user__avatar--large {
+  img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 47%;
+  }
+}
+
+.user__name {
+  margin-right: 10px;
+  text-align: center;
+}
+
+.user__name_centered {
+  margin-top: 30px;
+}
+
+.user {
+  margin-bottom: 20px;
+}
+
+.change-avatar-button {
+  display: none;
+}
