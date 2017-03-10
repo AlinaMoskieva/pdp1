@@ -5,4 +5,10 @@ class ApplicationPolicy
     @user = user
     @record = record
   end
+
+  protected
+
+  def owner?
+    user && record.user == user
+  end
 end

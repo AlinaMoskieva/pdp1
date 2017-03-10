@@ -1,7 +1,4 @@
 class ArticleDecorator < ApplicationDecorator
-  include Draper::LazyHelpers
-  include ActionView::Helpers::DateHelper
-
   delegate :title, :text, :user
   delegate :full_name, to: :user, prefix: true
 

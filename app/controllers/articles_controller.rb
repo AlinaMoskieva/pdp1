@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   expose_decorated :article
   expose_decorated :articles, -> { Article.includes(:user).order(created_at: :desc).page(params[:page]) }
+  expose_decorated :comments, -> { article.comments.includes(:user).page(params[:page]) }
   before_action :authorize_resource, only: %i(create update destroy)
 
   def create

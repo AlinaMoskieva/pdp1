@@ -1,5 +1,6 @@
 class ApplicationDecorator < Draper::Decorator
   include Draper::LazyHelpers
+  include ActionView::Helpers::DateHelper
 
   delegate :to_model
 
