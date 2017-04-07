@@ -9,6 +9,7 @@ feature "User updates comment" do
   let!(:another_comment) { create :comment, article: another_article }
 
   before do
+    # TODO: include_context "current user signed in"
     login_as user
     visit article_path(article)
   end

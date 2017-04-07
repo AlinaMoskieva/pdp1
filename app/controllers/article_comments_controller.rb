@@ -3,11 +3,14 @@ class ArticleCommentsController < ApplicationController
 
   expose :comment
   expose_decorated :article
+
   before_action :authorize_resource, only: %i(create update destroy)
 
   def create
     comment.article = article
     comment.user = current_user
+
+    # TODO: fragments.js
     if comment.save
       respond_with(comment, location: comment.article)
     else

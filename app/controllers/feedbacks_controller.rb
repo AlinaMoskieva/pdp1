@@ -1,9 +1,9 @@
 class FeedbacksController < ApplicationController
-  expose(:feedback, attributes: :feedback_params)
+  expose :feedback, attributes: :feedback_params
 
   def create
-    FeedbackMailer.send_feedback(feedback).deliver_now if feedback.valid?
-    respond_with feedback, location: root_path
+    FeedbackMailer.feedback(feedback).deliver_now if feedback.valid?
+    respond_with(feedback, location: root_path)
   end
 
   private

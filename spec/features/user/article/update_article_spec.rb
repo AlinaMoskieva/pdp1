@@ -19,9 +19,12 @@ feature "User updates" do
     end
   end
 
+  # TODO: lear all gems from Gemfile
+
   scenario "comment with valid data" do
     find_edit_article_link
 
+    # TODO: formulaic
     fill_in "Title", with: title
     fill_in "Text", with: text
     click_button "Update Article"

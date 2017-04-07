@@ -10,6 +10,7 @@ feature "User destroys" do
   scenario "his article" do
     visit article_path(article)
 
+    # TODO: https://flatstack.atlassian.net/wiki/pages/viewpage.action?pageId=8945683
     within ".article" do
       expect(page).to have_link("Delete")
       click_link "Delete"

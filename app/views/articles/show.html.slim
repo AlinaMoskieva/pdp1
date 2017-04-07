@@ -24,6 +24,7 @@
     .paginator.text-center
       = paginate(comments)
 
+    / = render(comments)
     - comments.each do |comment|
       .comment
         .small-10.large-11.columns

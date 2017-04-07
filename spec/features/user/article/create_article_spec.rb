@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User creates" do
+feature "User creates article" do
   let(:user) { create :user }
   let(:title) { Faker::Lorem.sentence(3) }
   let(:text) { Faker::Lorem.sentence(3) }
@@ -15,7 +15,7 @@ feature "User creates" do
     click_link "New Article"
   end
 
-  scenario "article with valid data" do
+  scenario "Create article with with valid data" do
     find_new_article_link
 
     fill_in "Title", with: title

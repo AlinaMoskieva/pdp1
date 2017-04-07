@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "As user I able to" do
+feature "User creates comment" do
   let!(:article) { create :article }
   let!(:user) { create :user }
   let(:comment_body) { Faker::Lorem.sentence(1) }
@@ -10,6 +10,7 @@ feature "As user I able to" do
     visit article_path(article)
   end
 
+  # TODO
   describe "create" do
     scenario "comment with valid data" do
       fill_in "comment_body", with: comment_body

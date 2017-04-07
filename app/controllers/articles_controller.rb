@@ -9,11 +9,13 @@ class ArticlesController < ApplicationController
   def create
     article.user = current_user
     article.save
+
     respond_with(article)
   end
 
   def update
     article.update_attributes(article_params)
+
     respond_with(article)
   end
 
@@ -29,6 +31,10 @@ class ArticlesController < ApplicationController
   end
 
   def authorize_resource
-    authorize article
+    authorize(article)
+  end
+
+  # TODO
+  def fetch_articles
   end
 end
