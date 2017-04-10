@@ -2,8 +2,8 @@ class ArticlesController < ApplicationController
   respond_to :html
 
   expose_decorated :article
-  expose_decorated :articles, -> { Article.includes(:user).order(created_at: :desc).page(params[:page]) }
-  expose_decorated :comments, -> { article.comments.includes(:user).page(params[:page]) }
+  expose_decorated :articles, :fetch_articles
+  expose_decorated :comments, :fetch_comments
   before_action :authorize_resource, only: %i(create update destroy)
 
   def create
@@ -34,7 +34,11 @@ class ArticlesController < ApplicationController
     authorize(article)
   end
 
-  # TODO
   def fetch_articles
+    Article.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
+  end
+
+  def fetch_comments
+    article.comments.includes(:user).page(params[:page]).per(2)
   end
 end
