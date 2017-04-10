@@ -22,9 +22,8 @@ feature "User updates article" do
   scenario "comment with valid data" do
     find_edit_article_link
 
-    # TODO: formulaic
-    fill_in "Title", with: title
-    fill_in "Text", with: text
+    fill_form(:article, { title: title, text: text })
+
     click_button "Update Article"
 
     expect(page).to have_content(title)
@@ -34,8 +33,8 @@ feature "User updates article" do
   scenario "comment with invalid data" do
     find_edit_article_link
 
-    fill_in "Title", with: ""
-    fill_in "Text", with: ""
+    fill_form(:article, { title: "", text: "" })
+
     click_button "Update Article"
 
     expect(page).to have_content("Article could not be updated.")

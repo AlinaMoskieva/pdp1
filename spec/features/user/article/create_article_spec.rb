@@ -18,8 +18,8 @@ feature "User creates article" do
   scenario "Create article with with valid data" do
     find_new_article_link
 
-    fill_in "Title", with: title
-    fill_in "Text", with: text
+    fill_form(:article, { title: title, text: text })
+
     click_button "Create Article"
 
     expect(page).to have_content(title)
@@ -29,8 +29,8 @@ feature "User creates article" do
   scenario "article with invalid data" do
     find_new_article_link
 
-    fill_in "Title", with: ""
-    fill_in "Text", with: ""
+    fill_form(:article, { title: "", text: "" })
+
     click_button "Create Article"
 
     expect(page).to have_content("Article could not be created.")
