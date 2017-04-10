@@ -1,12 +1,12 @@
 require "rails_helper"
 
 feature "User creates article" do
-  let(:user) { create :user }
+  include_context "current user signed in"
+
   let(:title) { Faker::Lorem.sentence(3) }
   let(:text) { Faker::Lorem.sentence(3) }
 
   before do
-    login_as user
     visit articles_path
   end
 

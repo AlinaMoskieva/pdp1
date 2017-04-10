@@ -1,14 +1,14 @@
 require "rails_helper"
 
-feature "User updates" do
-  let!(:user) { create :user }
-  let!(:article) { create :article, user: user }
+feature "User updates article" do
+  include_context "current user signed in"
+
+  let!(:article) { create :article, user: current_user }
   let!(:another_article) { create :article }
   let(:title) { Faker::Lorem.sentence(3) }
   let(:text) { Faker::Lorem.sentence(3) }
 
   before do
-    login_as user
     visit article_path(article)
   end
 
@@ -18,8 +18,6 @@ feature "User updates" do
       click_link("Edit")
     end
   end
-
-  # TODO: lear all gems from Gemfile
 
   scenario "comment with valid data" do
     find_edit_article_link

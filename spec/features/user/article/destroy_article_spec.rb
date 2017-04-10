@@ -1,25 +1,25 @@
 require "rails_helper"
 
-feature "User destroys" do
-  let!(:user) { create :user }
-  let!(:article) { create :article, user: user }
-  let!(:another_article) { create :article }
+feature "User destroys article" do
+  include_context "current user signed in"
 
-  before { login_as user }
+  let!(:article) { create :article, user: current_user }
+  let!(:another_article) { create :article }
 
   scenario "his article" do
     visit article_path(article)
 
-    # TODO: https://flatstack.atlassian.net/wiki/pages/viewpage.action?pageId=8945683
     within ".article" do
       expect(page).to have_link("Delete")
       click_link "Delete"
     end
+
     expect(page).to have_content("Article was successfully destroyed.")
   end
 
   scenario "not his article" do
     visit article_path(another_article)
+
     within ".article" do
       expect(page).not_to have_link("Delete")
     end

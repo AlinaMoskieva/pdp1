@@ -1,13 +1,12 @@
 require "rails_helper"
 
-feature "User destroy" do
+feature "User destroy comment" do
+  include_context "current user signed in"
+
   let!(:article) { create :article }
-  let!(:user) { create :user }
-  let!(:comment) { create :comment, article: article, user: user }
+  let!(:comment) { create :comment, article: article, user: current_user }
   let!(:another_article) { create :article }
   let!(:another_comment) { create :comment, article: another_article }
-
-  before { login_as user }
 
   scenario "not his comment" do
     visit article_path(another_article)

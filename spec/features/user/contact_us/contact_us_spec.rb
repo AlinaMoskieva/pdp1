@@ -1,10 +1,11 @@
 require "rails_helper"
 
 feature "As user I able send feedback via contact form" do
+  include_context "current user signed in"
+
   let(:user) { create :user }
 
   before do
-    login_as user
     visit root_path
     click_link "Contact us"
   end
