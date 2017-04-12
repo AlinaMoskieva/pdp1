@@ -1,15 +1,15 @@
 require "rails_helper"
 
 feature "User updates comment" do
+  include_context "current user signed in"
+
   let!(:article) { create :article }
-  let!(:user) { create :user }
-  let!(:comment) { create :comment, article: article, user: user }
-  let(:comment_body) { Faker::Lorem.sentence(1) }
+  let!(:comment) { create :comment, article: article, user: current_user }
+  let(:attributes) { attributes_for(:comment).slice(:body) }
   let!(:another_article) { create :article }
   let!(:another_comment) { create :comment, article: another_article }
 
   before do
-    login_as user
     visit article_path(article)
   end
 
@@ -17,12 +17,12 @@ feature "User updates comment" do
     expect(page).to have_link("Edit")
     click_link "Edit"
 
-    fill_in "comment_body", with: comment_body
+    fill_in "comment_body", with: attributes[:comment]
 
     expect(page).to have_button("Update Comment")
     click_button "Update Comment"
 
-    expect(page).to have_content(comment_body)
+    expect(page).to have_content(attributes[:comment])
   end
 
   scenario "with invalid data" do

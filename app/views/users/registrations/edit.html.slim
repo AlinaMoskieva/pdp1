@@ -1,10 +1,11 @@
-.edit-user-information
+.edit-user-information(data-comp="avatar")
   .user
     .row
       .columns
         .small-4.large-2.columns
           .user__avatar--large
-            = current_user.medium_avatar
+            .js_user__avatar
+              = current_user.medium_avatar
         .small-8.large-10.columns
           .user__name--centered
             h2 = title("#{current_user.full_name}")
@@ -17,8 +18,8 @@
           html: { method: :put, multipart: true } do |f|
 
         .form-inputs
-          = f.file_field :avatar, class: "change-avatar-button"
-          = f.hidden_field :avatar_cache, class: "change-avatar-cache"
+          = f.file_field :avatar, class: "change-avatar-button js_avatar-button"
+          = f.hidden_field :avatar_cache, class: "change-avatar-cache js_avatar-cache"
           = f.input :remove_avatar, as: :boolean
           = f.input :full_name, required: true, autofocus: true
           = f.input :email, required: true

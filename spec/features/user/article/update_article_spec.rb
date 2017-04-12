@@ -1,14 +1,14 @@
 require "rails_helper"
 
-feature "User updates" do
-  let!(:user) { create :user }
-  let!(:article) { create :article, user: user }
+feature "User updates article" do
+  include_context "current user signed in"
+
+  let!(:article) { create :article, user: current_user }
   let!(:another_article) { create :article }
-  let(:title) { Faker::Lorem.sentence(3) }
-  let(:text) { Faker::Lorem.sentence(3) }
+
+  let(:attributes) { attributes_for(:article).slice(:title, :text) }
 
   before do
-    login_as user
     visit article_path(article)
   end
 
@@ -19,22 +19,22 @@ feature "User updates" do
     end
   end
 
-  scenario "comment with valid data" do
+  scenario "with valid data" do
     find_edit_article_link
 
-    fill_in "Title", with: title
-    fill_in "Text", with: text
+    fill_form(:article, attributes)
+
     click_button "Update Article"
 
-    expect(page).to have_content(title)
-    expect(page).to have_content(text)
+    expect(page).to have_content(attributes[:title])
+    expect(page).to have_content(attributes[:text])
   end
 
-  scenario "comment with invalid data" do
+  scenario "with invalid data" do
     find_edit_article_link
 
-    fill_in "Title", with: ""
-    fill_in "Text", with: ""
+    fill_form(:article, title: "", text: "")
+
     click_button "Update Article"
 
     expect(page).to have_content("Article could not be updated.")

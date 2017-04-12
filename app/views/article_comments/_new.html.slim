@@ -1,6 +1,6 @@
 .row
   .form
-    = simple_form_for([article, Comment.new(article_id: article)]) do |f|
+    = simple_form_for([article, Comment.new]) do |f|
       .small-7.large-8.columns
         .form-inputs
           = f.input :body, label: "Your comment"

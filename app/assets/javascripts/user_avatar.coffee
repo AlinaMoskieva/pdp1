@@ -2,9 +2,9 @@ class Avatar
   constructor: (el)->
     @el = el
     @$el = $(el)
-    @avatar = $(".user__avatar--large", @$el)
-    @avatarCache = $(".change-avatar-cache", @$el)
-    @changeAvatarButton = $(".change-avatar-button", @$el)
+    @avatar = $(".js_user__avatar", @$el)
+    @avatarCache = $(".js_avatar-cache", @$el)
+    @changeAvatarButton = $(".js_avatar-button", @$el)
 
     @bindings()
     @changeAvatarFromCache()
@@ -24,4 +24,4 @@ class Avatar
       @avatar.find("img").attr "src", "uploads/tmp/" + @avatarCache.attr("value")
 
 $ ->
-  new Avatar(".edit-user-information")
+  new Avatar("[data-comp='avatar']")
