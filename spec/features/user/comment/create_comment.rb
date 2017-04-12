@@ -5,18 +5,18 @@ feature "User creates comment" do
 
   let!(:article) { create :article }
   let!(:user) { create :user }
-  let!(:comment_body) { Faker::Lorem.sentence(1) }
+  let(:attributes) { attributes_for(:comment).slice(:body) }
 
   before do
     visit article_path(article)
   end
 
   scenario "with valid data" do
-    fill_in :comment_body, with: comment_body
+    fill_in :comment_body, with: attributes[:body]
     expect(page).to have_button "Create Comment"
     click_button "Create Comment"
 
-    expect(page).to have_content(comment_body)
+    expect(page).to have_content(attributes[:body])
   end
 
   scenario "with invalid data" do

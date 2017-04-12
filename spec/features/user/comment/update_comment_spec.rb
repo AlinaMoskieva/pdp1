@@ -5,7 +5,7 @@ feature "User updates comment" do
 
   let!(:article) { create :article }
   let!(:comment) { create :comment, article: article, user: current_user }
-  let(:comment_body) { Faker::Lorem.sentence(1) }
+  let(:attributes) { attributes_for(:comment).slice(:body) }
   let!(:another_article) { create :article }
   let!(:another_comment) { create :comment, article: another_article }
 
@@ -17,12 +17,12 @@ feature "User updates comment" do
     expect(page).to have_link("Edit")
     click_link "Edit"
 
-    fill_in "comment_body", with: comment_body
+    fill_in "comment_body", with: attributes[:comment]
 
     expect(page).to have_button("Update Comment")
     click_button "Update Comment"
 
-    expect(page).to have_content(comment_body)
+    expect(page).to have_content(attributes[:comment])
   end
 
   scenario "with invalid data" do

@@ -3,8 +3,7 @@ require "rails_helper"
 feature "User creates article" do
   include_context "current user signed in"
 
-  let(:title) { Faker::Lorem.sentence(3) }
-  let(:text) { Faker::Lorem.sentence(3) }
+  let(:attributes) { attributes_for(:article).slice(:title, :text) }
 
   before do
     visit articles_path
@@ -18,18 +17,16 @@ feature "User creates article" do
   scenario "Create article with with valid data" do
     find_new_article_link
 
-    fill_form(:article, { title: title, text: text })
+    fill_form(:article, attributes)
 
     click_button "Create Article"
 
-    expect(page).to have_content(title)
-    expect(page).to have_content(text)
+    expect(page).to have_content(attributes[:title])
+    expect(page).to have_content(attributes[:text])
   end
 
   scenario "article with invalid data" do
     find_new_article_link
-
-    fill_form(:article, { title: "", text: "" })
 
     click_button "Create Article"
 
