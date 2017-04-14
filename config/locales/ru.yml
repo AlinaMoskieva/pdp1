@@ -12,3 +12,9 @@ ru:
     anything_else: Что-нибудь еще?
     enter_account: Введите свои данные для входа
     new_account: Создайте свою учетную запись
+    articles: Статьи
+  article:
+    author: Автор
+  comments:
+    comments: Комментарии
+    add: Добавить комментарий

@@ -17,7 +17,7 @@
           = link_to("Delete", article, method: :delete, class: 'alert hollow button', data: { confirm: 'Are you sure?' })
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
-    h4="Comments ()"
+    h4=t("comments.comments")
     hr/
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
@@ -44,7 +44,7 @@
         hr/
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
-    h4="Add a comment"
+    h4=t("comments.add")
     - if policy(:comment).create?
       = render "comments/new"
     - else

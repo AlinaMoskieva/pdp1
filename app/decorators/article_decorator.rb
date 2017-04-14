@@ -3,7 +3,7 @@ class ArticleDecorator < ApplicationDecorator
   delegate :full_name, to: :user, prefix: true
 
   def author
-    "Author: #{user_full_name}"
+    "#{t('article.author')}: #{user_full_name}"
   end
 
   def preview_title_link

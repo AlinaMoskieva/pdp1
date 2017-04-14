@@ -12,3 +12,10 @@ en:
     anything_else: Anything else?
     enter_account: Enter your account
     new_account: Create your account
+    articles: Articles
+  article:
+    author: Author
+  comments:
+    comments: Comments
+    add: Add a comment
+
