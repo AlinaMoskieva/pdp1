@@ -31,5 +31,15 @@ ru:
       article:
         title: Заголовок статьи
         text: Текст статьи
+  helpers:
+    submit:
+      article:
+        create: Создать статью
+        update: Обновить статью
+      comment:
+        create: Создать комментарий
+        update: Обновить комментарий
+
+
 
 

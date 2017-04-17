@@ -30,5 +30,13 @@ en:
       article:
         title: Article's title
         text: Article's text
+  helpers:
+    submit:
+      article:
+        create: Create Article
+        update: Update Article
+      comment:
+        create: Create Comment
+        update: Update Comment
 
 
