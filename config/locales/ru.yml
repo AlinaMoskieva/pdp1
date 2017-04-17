@@ -19,6 +19,8 @@ ru:
   article:
     author: Автор
     delete_message: Вы уверены?
+    create: Создать статью
+    back: Назад
   comments:
     comments: Комментарии
     add: Добавить комментарий

@@ -16,5 +16,12 @@ ru:
         email: Электронная почта
         subject: Тема сообщения
         content: Сообщение
+      article:
+        title: Заголовок
+        text: Текст
+    placeholders:
+      article:
+        title: Заголовок статьи
+        text: Текст статьи
 
 

@@ -19,6 +19,8 @@ en:
   article:
     author: Author
     delete_message: Are you sure?
+    create: Create article
+    back: Back
   comments:
     comments: Comments
     add: Add a comment

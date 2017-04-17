@@ -15,5 +15,12 @@ en:
         email: Your email please
         subject: The subject of your message
         content: Your message
+      article:
+        title: Title
+        text: Text
+    placeholders:
+      article:
+        title: Article's title
+        text: Article's text
 
 
