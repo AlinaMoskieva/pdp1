@@ -44,3 +44,6 @@ ru:
     address: ул. Бутлерова, 35/15
     email_title: Электронная почта
     email: articles@example.com
+  feedback:
+    send: Отправить отзыв
+    back: Назад

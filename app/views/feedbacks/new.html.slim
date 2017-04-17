@@ -5,14 +5,13 @@
   .small-10.large-8.large-offset-1.small-offset-1.columns
     = simple_form_for(feedback) do |f|
       .form-inputs
-        = f.input :email, label: "Your email please", required: true
-        = f.hint "Your opinion is important for us. Please, give the way to contact with you"
-        = f.input :subject, required: true, label: "The subject of your message"
-        = f.input :content, required: true, label: "Your message"
+        = f.input :email, required: true
+        = f.input :subject, required: true
+        = f.input :content, required: true
 
 
       .small-10.large-8.large-offset-1.small-offset-1.columns
         .form-actions
-         = f.button :submit, "Send feedback", class: "hollow button"
+         = f.button :submit, t("feedback.send"), class: "hollow button"
          '
-         = link_to "Back", :back, class: "hollow button"
+         = link_to t("feedback.back"), :back, class: "hollow button"

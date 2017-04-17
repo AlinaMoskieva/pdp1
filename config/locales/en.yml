@@ -38,5 +38,8 @@ en:
     address: 249 Wuckert Locks
     email_title: email
     email: articles@example.com
+  feedback:
+    send: Send feedback
+    back: Back
 
 

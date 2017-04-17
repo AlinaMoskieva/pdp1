@@ -1,0 +1,20 @@
+ru:
+  simple_form:
+    "yes": Да
+    "no": Нет
+    required:
+      text: required
+      mark: "*"
+    error_notification:
+      default_message: "Просмотрите на приведенные ниже замечания:"
+    hints:
+      feedback:
+        email: Ваше мнение очень важно для нас. Оставьте пожалуйста
+               свою электронную почту, чтобы мы могли связаться в Вами.
+    labels:
+      feedback:
+        email: Электронная почта
+        subject: Тема сообщения
+        content: Сообщение
+
+
