@@ -13,13 +13,16 @@ en:
     enter_account: Enter your account
     new_account: Create your account
     articles: Articles
+    new_article: New article
+    about_us: About us
+    edit_article: Edit article
   article:
     author: Author
+    delete_message: Are you sure?
   comments:
     comments: Comments
     add: Add a comment
   about_us:
-    title: About us
     about: Chocolate bar gingerbread topping soufflé jujubes chocolate cake I
            love jujubes apple pie. Muffin sesame snaps toffee dragée. Pastry
            sesame snaps jelly-o jelly wafer. I love bonbon danish.
