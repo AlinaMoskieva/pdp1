@@ -21,13 +21,11 @@ ru:
     author: Автор
     delete_message: Вы уверены?
     create: Создать статью
-    back: Назад
   comments:
     comments: Комментарии
     add: Добавить комментарий
     create: Создать комментарий
     update: Обновить комментарий
-    back: Назад
   user:
     update: Обновить
   about_us:
@@ -54,4 +52,8 @@ ru:
     email: articles@example.com
   feedback:
     send: Отправить отзыв
+    back: Назад
+  buttons:
+    edit: Редактировать
+    delete: Удалить
     back: Назад

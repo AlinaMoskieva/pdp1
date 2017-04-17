@@ -11,10 +11,10 @@
     .small-9.large-8.large-offset-2.small-offset-1.columns
       .form-actions
         - if policy(article).update?
-          = link_to "Edit", edit_article_path(article), class: "hollow button"
+          = link_to t("buttons.edit"), edit_article_path(article), class: "hollow button"
           '
         - if policy(article).destroy?
-          = link_to("Delete", article, method: :delete, class: "alert hollow button", data: { confirm: t("article.delete_message") })
+          = link_to(t("buttons.delete"), article, method: :delete, class: "alert hollow button", data: { confirm: t("article.delete_message") })
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
     h4=t("comments.comments")
@@ -27,20 +27,20 @@
     / = render(comments)
     - comments.each do |comment|
       .comment
-        .small-10.large-11.columns
+        .small-8.large-9.columns
           .comment__author-name
             span= comment.user_full_name
           .comment__body
             p= comment.body
           .comment__date
             span= comment.time_since_creation
-        .small-2.large-1.columns
+        .small-4.large-3.columns
         - if policy(comment).update?
           .comment__edit-button
-            = link_to "Edit", edit_comment_path(comment)
+            = link_to t("buttons.edit"), edit_comment_path(comment)
         - if policy(comment).destroy?
           .comment__destroy-button
-            = link_to "Delete", comment, method: :delete
+            = link_to t("buttons.delete"), comment, method: :delete
         hr/
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
