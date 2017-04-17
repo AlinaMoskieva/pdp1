@@ -16,6 +16,7 @@ en:
     new_article: New article
     about_us: About us
     edit_article: Edit article
+    update_comment: Edit comment
   article:
     author: Author
     delete_message: Are you sure?
@@ -24,6 +25,9 @@ en:
   comments:
     comments: Comments
     add: Add a comment
+    create: Create comment
+    update: Update comment
+    back: Back
   about_us:
     about: Chocolate bar gingerbread topping soufflé jujubes chocolate cake I
            love jujubes apple pie. Muffin sesame snaps toffee dragée. Pastry

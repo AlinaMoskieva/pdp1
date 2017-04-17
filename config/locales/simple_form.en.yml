@@ -18,6 +18,8 @@ en:
       article:
         title: Title
         text: Text
+      comment:
+        body: Your comment
     placeholders:
       article:
         title: Article's title

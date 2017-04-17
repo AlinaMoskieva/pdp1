@@ -19,6 +19,8 @@ ru:
       article:
         title: Заголовок
         text: Текст
+      comment:
+        body: Комментарий
     placeholders:
       article:
         title: Заголовок статьи
