@@ -23,6 +23,7 @@ en:
   comments:
     comments: Comments
     add: Add a comment
+    notice: You should sign in for have ability to add comments
   user:
     update: Update
   about_us:
@@ -43,10 +44,10 @@ en:
     email: articles@example.com
   feedback:
     send: Send feedback
-    back: Back
   buttons:
     edit: Edit
     delete: Delete
     back: Back
-
+    sign_in: Sign in
+    sign_up: Sign up
 

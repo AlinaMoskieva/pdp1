@@ -24,8 +24,7 @@ ru:
   comments:
     comments: Комментарии
     add: Добавить комментарий
-    create: Создать комментарий
-    update: Обновить комментарий
+    notice: Вы должны войти в систему, если хотите оставить комментарий
   user:
     update: Обновить
   about_us:
@@ -52,8 +51,9 @@ ru:
     email: articles@example.com
   feedback:
     send: Отправить отзыв
-    back: Назад
   buttons:
     edit: Редактировать
     delete: Удалить
     back: Назад
+    sign_in: Войти
+    sign_up: Зарегистрироваться
