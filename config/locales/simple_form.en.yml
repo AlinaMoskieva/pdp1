@@ -20,6 +20,12 @@ en:
         text: Text
       comment:
         body: Your comment
+      user:
+        full_name: Full name
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        remove_avatar: Remove avatar
     placeholders:
       article:
         title: Article's title

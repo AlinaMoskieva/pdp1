@@ -21,6 +21,12 @@ ru:
         text: Текст
       comment:
         body: Комментарий
+      user:
+        full_name: Полное имя
+        email: Электронная почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remove_avatar: Удалить фотографию профиля
     placeholders:
       article:
         title: Заголовок статьи
