@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   before_action :authorize_resource, only: %i(create update destroy)
 
   def create
+    binding.pry
     comment.article = article
     comment.user = current_user
     if comment.save

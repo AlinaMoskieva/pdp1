@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   resources :articles, only: %i(show create new index edit update destroy)
   resources :feedbacks, only: %i(new create)
-  resources :comments, only: %i(update destroy show)
+  resources :article_comments, only: %i(edit update destroy), as: "comments"
 
   resources :articles do
-    resources :comments, shallow: true
+    resources :article_comments, as: "comments", path: "comments"
   end
 
   get "about_us", to: "pages#about_us"
