@@ -14,49 +14,19 @@
           = link_to "Edit", edit_article_path(article), class: 'hollow button'
           '
         - if policy(article).destroy?
-          = link_to("Delete", article, method: :delete, class: 'alert hollow button', data: { confirm: 'Are you sure?' })
+          = link_to("Delete", article, method: :delete, class: 'alert hollow button', data: { confirm: "Are you sure?" })
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
-    h4="Comments ()"
+    h4="Comments"
     hr/
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
-    .paginator.text-center
-      = paginate(comments)
-
-    / = render(comments)
-    - comments.each do |comment|
-      .comment
-        .small-10.large-11.columns
-          .comment__author-name
-            span= comment.user_full_name
-          .comment__body
-            p= comment.body
-          .comment__date
-            span= comment.time_since_creation
-        .small-2.large-1.columns
-        - if policy(comment).update?
-          .comment__edit-button
-            = link_to "Edit", edit_comment_path(comment)
-        - if policy(comment).destroy?
-          .comment__destroy-button
-            = link_to "Delete", comment_path(comment), method: :delete
-        hr/
+    = render "article_comments/discussion", comments: comments
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
     h4="Add a comment"
     - if policy(:comment).create?
-      / = render "article_comments/new"
-      .row
-        .form
-          = simple_form_for([article, Comment.new]) do |f|
-            .small-7.large-8.columns
-              .form-inputs
-                = f.input :body, label: "Your comment"
-            .small-5.large-4.columns
-              .form-actions
-                = f.button :submit, class: "hollow button", id: "comment-submit-button"
-
+      = render "article_comments/new"
     - else
       .callout.primary
         p="You should sign in for have ability to add comments"
