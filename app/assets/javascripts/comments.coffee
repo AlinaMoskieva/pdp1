@@ -10,6 +10,7 @@ class Comment
 
   bindings: (el)->
     @destroy_button.on "click", @destroyComment
+    @edit_button.on "click", @editComment
 
   destroyComment: (event)=>
     event.preventDefault()
@@ -25,6 +26,12 @@ class Comment
         @$el.hide()
     )
 
+  editComment: (event)=>
+    event.preventDefault()
+    url = @edit_button.attr("href").split("/edit")[0]
+
+    @edit_button.hide()
+    @comment_body.html((JST["templates/comment_form"])({ action: url }))
 
 $ ->
   comments = $(".comment")
