@@ -11,22 +11,22 @@
     .small-9.large-8.large-offset-2.small-offset-1.columns
       .form-actions
         - if policy(article).update?
-          = link_to "Edit", edit_article_path(article), class: 'hollow button'
+          = link_to t("buttons.edit"), edit_article_path(article), class: "hollow button"
           '
         - if policy(article).destroy?
-          = link_to("Delete", article, method: :delete, class: 'alert hollow button', data: { confirm: "Are you sure?" })
+          = link_to(t("buttons.delete"), article, method: :delete, class: "alert hollow button", data: { confirm: t("article.delete_message") })
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
-    h4="Comments"
+    h4=t("comments.comments")
     hr/
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
     = render "article_comments/discussion", comments: comments
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
-    h4="Add a comment"
+    h4=t("comments.add")
     - if policy(:comment).create?
       = render "article_comments/new"
     - else
       .callout.primary
-        p="You should sign in for have ability to add comments"
+        p= t("comments.notice")

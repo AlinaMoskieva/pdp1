@@ -1,6 +1,6 @@
 .row
   .columns
-    h2 = title("Sign up")
+    h2 = title(t("navigation.sign_up"))
 
 .row
   .medium-5.columns
@@ -8,12 +8,7 @@
         as: resource_name,
         url: registration_path(resource_name) do |f|
 
-      legend
-        | Create your
-        '
-        strong Rails Base example site
-        '
-        | account
+      legend = t("title.new_account")
 
       .form-inputs
         = f.input :full_name, required: true, autofocus: true
@@ -22,7 +17,7 @@
         = f.input :password_confirmation, required: true
 
       .form-actions
-        = f.button :submit, "Sign up"
+        = f.button :submit, t("buttons.sign_up")
 
   .medium-5.medium-offset-1.columns.end
     = render "users/shared/links"
