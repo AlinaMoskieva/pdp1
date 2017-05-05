@@ -1,9 +1,9 @@
 .row
   .form
-    = simple_form_for([article, Comment.new]) do |f|
+    = simple_form_for([article, Comment.new], data: { remote: true, behavior: "fragments" }) do |f|
       .small-7.large-8.columns
         .form-inputs
-          = f.input :body, label: "Your comment"
+          = f.input :body, as: :text, input_html: { rows: 4 }
       .small-5.large-4.columns
         .form-actions
           = f.button :submit, class: "hollow button", id: "comment-submit-button"

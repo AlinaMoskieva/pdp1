@@ -9,7 +9,14 @@
 #= require foundation
 #= require current_user
 #= require skim
+#= require fragments
+#= require fragments/highlight
 #= require_tree ../templates
 #= require_tree .
 
 $(document).foundation()
+
+
+$(document).on("fragment:update", (e, $newContent) ->
+  $newContent.findAndFilter(".discussion")
+)

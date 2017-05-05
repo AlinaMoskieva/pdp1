@@ -1,14 +1,15 @@
 .row
   .small-10.large-8.large-offset-1.small-offset-1.columns
-    h2(style="text-align:center")="Update comment"
+    h4(style="text-align:center")=t("title.update_comment")
     .row
       .form
         = simple_form_for(comment) do |f|
-          .small-7.large-8.columns
+          .small-8.large-9.columns
             .form-inputs
-              = f.input :body, label: "Your comment"
-          .small-5.large-4.columns
+              = f.input :body, as: :text, input_html: { rows: 4 }
+          .small-3.large-3.columns
             .form-actions
               = f.button :submit, class: "hollow button", id: "comment-submit-button"
+              = link_to  t("buttons.back"), :back, class: "hollow button"
 
 

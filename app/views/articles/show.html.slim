@@ -21,32 +21,12 @@
     hr/
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
-    .paginator.text-center
-      = paginate(comments)
-
-    / = render(comments)
-    - comments.each do |comment|
-      .comment
-        .small-8.large-9.columns
-          .comment__author-name
-            span= comment.user_full_name
-          .comment__body
-            p= comment.body
-          .comment__date
-            span= comment.time_since_creation
-        .small-4.large-3.columns
-        - if policy(comment).update?
-          .comment__edit-button
-            = link_to t("buttons.edit"), edit_comment_path(comment)
-        - if policy(comment).destroy?
-          .comment__destroy-button
-            = link_to t("buttons.delete"), comment, method: :delete
-        hr/
+    = render "article_comments/discussion", comments: comments
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
     h4=t("comments.add")
     - if policy(:comment).create?
-      = render "comments/new"
+      = render "article_comments/new"
     - else
       .callout.primary
         p= t("comments.notice")
