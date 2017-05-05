@@ -1,5 +1,5 @@
 class ArticleCommentsController < ApplicationController
-  respond_to :html
+  respond_to :html, :json
 
   expose(:comment, attributes: :comment_params)
   expose :article
@@ -25,7 +25,7 @@ class ArticleCommentsController < ApplicationController
 
   def destroy
     comment.destroy
-    respond_with(comment, location: comment.article)
+    respond_with(comment, location: nil)
   end
 
   private
