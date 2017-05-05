@@ -1,8 +1,9 @@
 class ArticleCommentsController < ApplicationController
   respond_to :html
 
-  expose :comment
-  expose_decorated :article
+  expose(:comment, attributes: :comment_params)
+  expose :article
+  expose :comments, :fetch_comments
 
   before_action :authorize_resource, only: %i(create update destroy)
 
@@ -10,11 +11,10 @@ class ArticleCommentsController < ApplicationController
     comment.article = article
     comment.user = current_user
 
-    # TODO: fragments.js
     if comment.save
-      respond_with(comment, location: comment.article)
+      render partial: "discussion", locals: { comments: comments }, layout: false
     else
-      redirect_to article, notice: "Comment could not be created."
+      redirect_to article, alert: "Comment could not be created."
     end
   end
 
@@ -36,5 +36,9 @@ class ArticleCommentsController < ApplicationController
 
   def authorize_resource
     authorize comment
+  end
+
+  def fetch_comments
+    article.comments.includes(:user).decorate
   end
 end

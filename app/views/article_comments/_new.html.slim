@@ -1,6 +1,6 @@
 .row
   .form
-    = simple_form_for([article, Comment.new]) do |f|
+    = simple_form_for([article, Comment.new], data: { remote: true, behavior: "fragments" }) do |f|
       .small-7.large-8.columns
         .form-inputs
           = f.input :body, label: "Your comment"
