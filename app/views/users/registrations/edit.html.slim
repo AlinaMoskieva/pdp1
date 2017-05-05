@@ -30,15 +30,15 @@
               required: false
 
         .form-actions
-          = f.button :submit, "Update"
+          = f.button :submit, t("user.update")
 
     .medium-5.medium-offset-1.columns.end
       h6
-        b Cancel my account
+        b = t("devise.account.cansel")
       p
-        | Unhappy?
+        | #{t("devise.account.unhappy")}
         '
-        = link_to "Cancel my account.",
+        = link_to t("devise.account.cansel"),
             registration_path(resource_name),
             data: { confirm: "Are you sure?" },
             method: :delete

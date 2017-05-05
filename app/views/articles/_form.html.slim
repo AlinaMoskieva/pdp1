@@ -1,13 +1,12 @@
 .form
   = simple_form_for(article) do |f|
     .form-inputs
-      / TODO: i18n
-      = f.input :title, placeholder: "Article's title"
-      = f.input :text, as: :text, input_html: { rows: 7 }, placeholder: "Article's text"
+      = f.input :title
+      = f.input :text, as: :text, input_html: { rows: 7 }
 
     .small-10.large-8.large-offset-1.small-offset-1.columns
       .form-actions
         = f.button :submit, class: "hollow button"
         '
-        = link_to 'Back', :back, class: "hollow button"
+        = link_to t("buttons.back"), :back, class: "hollow button"
 

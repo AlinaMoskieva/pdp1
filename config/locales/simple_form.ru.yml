@@ -1,0 +1,41 @@
+ru:
+  simple_form:
+    "yes": Да
+    "no": Нет
+    required:
+      text: required
+      mark: "*"
+    error_notification:
+      default_message: "Просмотрите на приведенные ниже замечания:"
+    hints:
+      feedback:
+        email: Ваше мнение очень важно для нас. Оставьте пожалуйста
+               свою электронную почту, чтобы мы могли связаться в Вами.
+    labels:
+      feedback:
+        email: Электронная почта
+        subject: Тема сообщения
+        content: Сообщение
+      article:
+        title: Заголовок
+        text: Текст
+      comment:
+        body: Комментарий
+      user:
+        full_name: Полное имя
+        email: Электронная почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remove_avatar: Удалить фотографию профиля
+    placeholders:
+      article:
+        title: Заголовок статьи
+        text: Текст статьи
+  helpers:
+    submit:
+      article:
+        create: Создать статью
+        update: Обновить статью
+      comment:
+        create: Создать комментарий
+        update: Обновить комментарий

@@ -1,16 +1,17 @@
 .comment data-updated-at="#{comment.updated_at.to_i}"
-  .small-10.large-11.columns
-    .comment__author-name
-      span= comment.user_full_name
-    .comment__body
-      p= comment.body
-    .comment__date
-      span= comment.time_since_creation
-  .small-2.large-1.columns
-  - if policy(comment).update?
-    .comment__edit-button
-      = link_to "Edit", edit_comment_path(comment)
-  - if policy(comment).destroy?
-    .comment__destroy-button
-      = link_to "Delete", comment_path(comment), method: :delete
-  hr/
+  .comment
+    .small-8.large-9.columns
+      .comment__author-name
+        span= comment.user_full_name
+      .comment__body
+        p= comment.body
+      .comment__date
+        span= comment.time_since_creation
+    .small-4.large-3.columns
+    - if policy(comment).update?
+      .comment__edit-button
+        = link_to t("buttons.edit"), edit_comment_path(comment)
+    - if policy(comment).destroy?
+      .comment__destroy-button
+        = link_to t("buttons.delete"), comment, method: :delete
+    hr/
