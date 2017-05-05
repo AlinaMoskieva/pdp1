@@ -14,9 +14,7 @@ class Comment
 
   destroyComment: (event)=>
     event.preventDefault()
-
     url = @destroy_button.attr("href")
-    console.log(url)
 
     $.ajax(
       url: url
@@ -34,5 +32,5 @@ class Comment
     @comment_body.html((JST["templates/comment_form"])({ action: url }))
 
 $ ->
-  comments = $(".comment")
+  comments = $(".js-comment")
   new Comment(comment) for comment in comments

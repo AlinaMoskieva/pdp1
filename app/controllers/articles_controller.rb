@@ -39,7 +39,6 @@ class ArticlesController < ApplicationController
   end
 
   def fetch_comments
-    article.comments.includes(:user)
-    # .page(params[:page]).per(2)
+    article.comments.includes(:user).page(params[:page]).per(2)
   end
 end
