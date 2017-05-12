@@ -1,0 +1,21 @@
+ru:
+  active_record:
+    models:
+      user:
+      article: Статья
+    attributes:
+      user:
+        full_name:
+  simple_form:
+    labels:
+      user:
+        new:
+          email: Введите Вашу электронную почту
+        edit:
+          password: Введите новый пароль
+          password_confirmation: Подтвердите Ваш новый пароль
+    hints:
+      user:
+        edit:
+          password: Оставьте это поле не заполненным, если Вы не хотите внести изменений
+          current_password: Нам нужен Ваш текущий пароль для подтверждения Ваших изменений

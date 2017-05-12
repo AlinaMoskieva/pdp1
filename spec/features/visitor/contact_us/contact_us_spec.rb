@@ -12,7 +12,7 @@ feature "As visitor I able send feedback via contact form" do
     fill_in "feedback_content", with: "Test content"
     click_button "Send feedback"
 
-    expect(page).to have_content("Feedback was successfully created.")
+    expect(page).to have_content(I18n.t("flash.actions.create.notice", resource_name: Feedback))
   end
 
   scenario "with invalid data" do
@@ -20,6 +20,6 @@ feature "As visitor I able send feedback via contact form" do
     fill_in "feedback_content", with: "Test content"
     click_button "Send feedback"
 
-    expect(page).to have_content("Feedback could not be created.")
+    expect(page).to have_content(I18n.t("flash.actions.create.alert", resource_name: Feedback))
   end
 end

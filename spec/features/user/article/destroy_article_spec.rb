@@ -14,7 +14,7 @@ feature "User destroys article" do
       click_link "Delete"
     end
 
-    expect(page).to have_content("Article was successfully destroyed.")
+    expect(page).to have_content(I18n.t("flash.actions.destroy.notice", resource_name: Article))
   end
 
   scenario "not his article" do

@@ -30,6 +30,6 @@ feature "User creates article" do
 
     click_button "Create Article"
 
-    expect(page).to have_content("Article could not be created.")
+    expect(page).to have_content(I18n.t("flash.actions.create.alert", resource_name: Article))
   end
 end
