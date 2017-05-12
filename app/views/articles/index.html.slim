@@ -2,20 +2,8 @@
   .small-4.large-4.large-offset-4.small-offset-4.columns
     h2=t("title.articles")
 .row
-  .small-10.large-8.large-offset-2.small-offset-1.columns
-    / TODO: = render(article)
+  .small-8.large-8.large-offset-2.small-offset-2.columns
     - articles.each do |article|
-      .article
-        .article__title_shorten-link
-          h4= article.preview_title_link
-        .article__text_shorten
-          p=article.preview_text
-        .article__author-right
-          span=article.author
-        .article__time-since-creation
-          span=article.time_since_creation
-        br
-        hr/
-
+      = render "article", article: article
     .paginator.text-center
       = paginate(articles)
