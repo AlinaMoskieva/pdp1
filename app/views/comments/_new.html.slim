@@ -1,9 +1,0 @@
-.row
-  .form
-    = simple_form_for([article, Comment.new]) do |f|
-      .small-12.large-12.columns
-        .form-inputs
-          = f.input :body, as: :text, input_html: { rows: 4 }
-      .small-4.large-4.large-offset-1.small-offset-1.columns
-        .form-actions
-          = f.button :submit, class: "hollow button", id: "comment-submit-button"
