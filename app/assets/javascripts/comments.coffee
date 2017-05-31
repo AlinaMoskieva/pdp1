@@ -34,3 +34,8 @@ class Comment
 $ ->
   comments = $(".js-comment")
   new Comment(comment) for comment in comments
+
+  $(document).on("fragment:update", (e, $newContent) ->
+    $newContent.findAndFilter(".discussion")
+    new Comment(comment) for comment in $newContent
+  )

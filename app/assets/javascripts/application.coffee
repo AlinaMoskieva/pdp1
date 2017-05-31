@@ -17,8 +17,3 @@
 #= require_tree .
 
 $(document).foundation()
-
-
-$(document).on("fragment:update", (e, $newContent) ->
-  $newContent.findAndFilter(".discussion")
-)

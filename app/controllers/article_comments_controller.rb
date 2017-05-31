@@ -19,8 +19,11 @@ class ArticleCommentsController < ApplicationController
   end
 
   def update
-    comment.update(comment_params)
-    respond_with(comment, location: comment.article)
+    if comment.update(comment_params)
+      render partial: "discussion", locals: { comments: comments }, layout: false
+    else
+      redirect_to article, alert: "Comment could not be created."
+    end
   end
 
   def destroy
