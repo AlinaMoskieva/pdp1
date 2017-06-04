@@ -8,9 +8,9 @@
       span= comment.time_since_creation
   .small-2.large-1.columns
   - if policy(comment).update?
-    .js-comment__edit-button
-      = link_to t("buttons.edit"), edit_article_comment_path(article, comment)
+    .comment__edit-button.js-edit-comment data-url=article_comment_path(article, comment)
+      = link_to t("buttons.edit"), "#", rel: "nofollow"
   - if policy(comment).destroy?
-    .js-comment__destroy-button
-      = link_to t("buttons.delete"),  article_comment_path(article, comment)
+    .comment__destroy-button.js-destroy-comment data-url=article_comment_path(article, comment)
+      = link_to t("buttons.delete"), "#", rel: "nofollow"
   hr/

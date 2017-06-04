@@ -3,8 +3,8 @@ class Comment
     @el = el
     @$el = $(el)
     @comment_body = $(".js-comment__body", @$el)
-    @edit_button = $(".js-comment__edit-button > a", @$el)
-    @destroy_button = $(".js-comment__destroy-button > a", @$el)
+    @edit_button = $(".js-edit-comment", @$el)
+    @destroy_button = $(".js-destroy-comment", @$el)
 
     @bindings()
 
@@ -14,7 +14,7 @@ class Comment
 
   destroyComment: (event)=>
     event.preventDefault()
-    url = @destroy_button.attr("href")
+    url = @destroy_button.data("url")
 
     $.ajax(
       url: url
@@ -26,7 +26,7 @@ class Comment
 
   editComment: (event)=>
     event.preventDefault()
-    url = @edit_button.attr("href").split("/edit")[0]
+    url = @edit_button.data("url")
 
     @edit_button.hide()
     @comment_body.html((JST["templates/comment_form"])({ action: url }))
