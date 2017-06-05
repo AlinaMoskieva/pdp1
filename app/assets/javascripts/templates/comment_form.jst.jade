@@ -1,0 +1,15 @@
+.row
+  .form
+    form#edit_comment(novalidate='novalidate', data-behavior='fragments', data-remote='true', action= action, accept-charset='UTF-8', method='post')
+      input(name='utf8', type='hidden', value='✓')
+      input(type='hidden', name='_method', value='patch')
+      .small-10.large-10.columns
+        .form-inputs
+          .input.string.required.comment_body
+            label.string.required(for='comment_body')
+              abbr(title='required') *
+              |  Your comment
+            textarea#comment_body.string.required(rows='5', type='text', value='!', name='comment[body]')
+      .small-2.large-2.columns
+        .form-actions
+          input#comment-submit-button.js-comment_update.button.hollow.button(type='submit', name='commit', value='Update Comment')

@@ -1,17 +1,16 @@
-.comment data-updated-at="#{comment.updated_at.to_i}"
-  .comment
-    .small-8.large-9.columns
-      .comment__author-name
-        span= comment.user_full_name
-      .comment__body
-        p= comment.body
-      .comment__date
-        span= comment.time_since_creation
-    .small-4.large-3.columns
-    - if policy(comment).update?
-      .comment__edit-button
-        = link_to t("buttons.edit"), edit_comment_path(comment)
-    - if policy(comment).destroy?
-      .comment__destroy-button
-        = link_to t("buttons.delete"), comment, method: :delete
-    hr/
+.js-comment data-updated-at="#{comment.updated_at.to_i}" data-comp="comment"
+  .small-10.large-11.columns
+    .comment__author-name
+      span= comment.user_full_name
+    .js-comment__body
+      p= comment.body
+    .comment__date
+      span= comment.time_since_creation
+  .small-2.large-1.columns
+  - if policy(comment).update?
+    .comment__edit-button.js-edit-comment data-url=article_comment_path(article, comment)
+      = link_to t("buttons.edit"), "#", rel: "nofollow"
+  - if policy(comment).destroy?
+    .comment__destroy-button.js-destroy-comment data-url=article_comment_path(article, comment)
+      = link_to t("buttons.delete"), "#", rel: "nofollow"
+  hr/

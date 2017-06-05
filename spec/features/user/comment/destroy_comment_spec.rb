@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User destroy comment" do
+feature "User destroy comment", js: true do
   include_context "current user signed in"
 
   let!(:article) { create :article }

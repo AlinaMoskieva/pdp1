@@ -18,12 +18,12 @@ feature "As user I able send feedback via contact form" do
 
     click_button "Send feedback"
 
-    expect(page).to have_content("Feedback was successfully created.")
+    expect(page).to have_content(I18n.t("flash.actions.create.notice", resource_name: Feedback))
   end
 
   scenario "with invalid data" do
     click_button "Send feedback"
 
-    expect(page).to have_content("Feedback could not be created.")
+    expect(page).to have_content(I18n.t("flash.actions.create.alert", resource_name: Feedback))
   end
 end

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User updates comment" do
+feature "User updates comment", js: true do
   include_context "current user signed in"
 
   let!(:article) { create :article }
@@ -16,25 +16,12 @@ feature "User updates comment" do
   scenario "with valid data" do
     expect(page).to have_link("Edit")
     click_link "Edit"
-
-    fill_in "comment_body", with: attributes[:comment]
-
-    expect(page).to have_button("Update Comment")
-    click_button "Update Comment"
-
-    expect(page).to have_content(attributes[:comment])
-  end
-
-  scenario "with invalid data" do
-    expect(page).to have_link("Edit")
-    click_link "Edit"
-
-    fill_in "comment_body", with: ""
+    fill_in "comment_body", with: attributes[:body]
 
     expect(page).to have_button("Update Comment")
     click_button "Update Comment"
 
-    expect(page).to have_content("Comment could not be updated.")
+    expect(page).to have_content(attributes[:body])
   end
 
   scenario "not his comment" do

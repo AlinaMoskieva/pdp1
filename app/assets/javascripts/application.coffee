@@ -11,12 +11,9 @@
 #= require skim
 #= require fragments
 #= require fragments/highlight
+#= require templates/comment_form
+#= require jade/runtime
 #= require_tree ../templates
 #= require_tree .
 
 $(document).foundation()
-
-
-$(document).on("fragment:update", (e, $newContent) ->
-  $newContent.findAndFilter(".discussion")
-)
