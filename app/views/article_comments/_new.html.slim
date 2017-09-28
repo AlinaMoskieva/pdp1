@@ -1,5 +1,5 @@
 .row
-  .form
+  .form data-fragment-id="new"
     = simple_form_for([article, Comment.new], data: { remote: true, behavior: "fragments" }) do |f|
       .columns.form-inputs
         = f.input :body, as: :text, input_html: { rows: 4 }

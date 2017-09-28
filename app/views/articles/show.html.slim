@@ -22,11 +22,4 @@
 .row
   .small-10.large-8.large-offset-2.small-offset-1.columns
     = render "article_comments/discussion", comments: comments
-.row
-  .small-10.large-8.large-offset-2.small-offset-1.columns
-    h4=t("comments.add")
-    - if policy(:comment).create?
-      = render "article_comments/new"
-    - else
-      .callout.primary
-        p= t("comments.notice")
+

@@ -11,11 +11,7 @@ class ArticleCommentsController < ApplicationController
     comment.article = article
     comment.user = current_user
 
-    if comment.save
-      render partial: "discussion", locals: { comments: comments }, layout: false
-    else
-      redirect_to article, alert: "Comment could not be created."
-    end
+    render partial: "discussion", locals: { comments: comments }, layout: false if comment.save
   end
 
   def update

@@ -1,2 +1,8 @@
 .discussion data-fragment-id="discussion" data-highlight=""
   = render partial: "article_comments/comment", collection: comments
+h4=t("comments.add")
+- if policy(:comment).create?
+  = render "article_comments/new"
+- else
+  .callout.primary
+    p= t("comments.notice")
