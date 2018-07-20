@@ -13,6 +13,26 @@ class ArticlesController < ApplicationController
     respond_with(article)
   end
 
+  def index
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+    puts request.location
+  end
+
   def update
     article.update_attributes(article_params)
 
