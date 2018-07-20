@@ -14,23 +14,20 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
-    puts request.location
+    puts request.location.data
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts 'alina'
+    puts request.location.data["lat"]
   end
 
   def update
